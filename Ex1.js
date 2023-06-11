@@ -1,15 +1,22 @@
 let botao = document.querySelector("#botao");
 botao.style.background="blue";
+let estaQuebrado =false;
 
-botao.addEventListener("mouseover", fundoVerde);
+/*outro jeito de escrever a funçao */
+botao.addEventListener("mouseover", e =>{
+    if (estaQuebrado==false)
+        botao.style.background="green";
+});
 botao.addEventListener("mouseout", fundoAzul);
 
-function fundoVerde(){
-    botao.style.background="green";
-}
 
 function fundoAzul(){
-    botao.style.background="blue";
+    if (estaQuebrado==false)
+        botao.style.background="blue";
 }
 
-
+botao.addEventListener("click", e =>{
+    botao.style.background="red";
+    botao.innerHTML="quebrei";
+    estaQuebrado =true;
+});
